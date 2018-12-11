@@ -3,5 +3,8 @@
   "version": "0.1.0",
   "description": "Surf Nydalen",
   "author": "Norconsult Informasjonssystemer AS",
-  "license": "UNLICENSED"
+  "license": "UNLICENSED",
+  "scripts": {
+    "start": "node index.js"
+  }
 }
