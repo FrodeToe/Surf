@@ -8,6 +8,7 @@
     "start": "node index.js"
   },
   "dependencies": {
+    "bootstrap": "^3.3.7",
     "node-static": "^0.7.11"
   }
 }
