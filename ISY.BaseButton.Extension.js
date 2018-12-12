@@ -1,9 +1,12 @@
+let _toggle;
 // *******************************************
 // ISY Base Button Extension
 // *******************************************
 function ISYBaseButtonExtension(viewer, options) {
   Autodesk.Viewing.Extension.call(this, viewer, options);
 }
+
+_toggle = false;
 
 ISYBaseButtonExtension.prototype = Object.create(Autodesk.Viewing.Extension.prototype);
 ISYBaseButtonExtension.prototype.constructor = ISYBaseButtonExtension;
@@ -20,6 +23,7 @@ ISYBaseButtonExtension.prototype.load = function () {
 
   console.log('Load ISY Base Button Extension');
 
+
   return true;
 };
 
@@ -35,13 +39,42 @@ ISYBaseButtonExtension.prototype.createUI = function () {
   // prepare to execute the button action
   var isyBaseButton = new Autodesk.Viewing.UI.Button('ISY.Button.Base');
   isyBaseButton.onClick = function (e) {
-    alert('ISY Base Button');
+    if(_toggle == false)
+    {
+      _viewer.impl.preloadPostProcessStyle();
+      // Turn on a style. Styles are passed in as strings, for the "value" parameter:
+      // "" - turn off the style; back to normal, no post-process is done.
+      // "edging" - turn on image-based edging system
+      // "cel" - cartoon ("posterized") style, with edges
+      // "graphite" - black pencil style
+      // "pencil" - colored pencil and paper
+      var value = "pencil";
+      _viewer.impl.setPostProcessParameter( "style", value );
+      // make the image have no edges:
+      _viewer.impl.setPostProcessParameter( "edges", true);
+      // turn up brightness a bit:
+      _viewer.impl.setPostProcessParameter( "brightness", 0.4);
+
+      _toggle = true;
+    }
+    else
+    {
+      _viewer.impl.preloadPostProcessStyle();
+      var value = "none";
+      _viewer.impl.setPostProcessParameter( "style", value );
+      // make the image have no edges:
+      _viewer.impl.setPostProcessParameter( "edges", false);
+      // turn up brightness a bit:
+      _viewer.impl.setPostProcessParameter( "brightness", 0);
+
+      _toggle = false;
+    }
   };
   // isyBaseButton CSS class should be defined on your .css file
   // you may include icons, below is a sample class:
   isyBaseButton.addClass('isyBaseButton');
-  isyBaseButton.setToolTip('ISY Base Button');
-  isyBaseButton.icon.className = 'glyphicon glyphicon-thumbs-up';
+  isyBaseButton.setToolTip('Show pencil sketch');
+  isyBaseButton.icon.className = 'glyphicon glyphicon-pencil';
   isyBaseButton.icon.style.fontSize = '24px';
 
   // SubToolbar
