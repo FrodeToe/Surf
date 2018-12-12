@@ -9,6 +9,7 @@
   },
   "dependencies": {
     "bootstrap": "^3.3.7",
+    "glyphicons": "^0.2.0",
     "node-static": "^0.7.11"
   }
 }
