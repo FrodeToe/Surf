@@ -39,8 +39,12 @@ ISYBaseButtonExtension.prototype.createUI = function () {
   // prepare to execute the button action
   var isyBaseButton = new Autodesk.Viewing.UI.Button('ISY.Button.Base');
   isyBaseButton.onClick = function (e) {
+ 
     if(_toggle == false)
     {
+      isyBaseButton.setState(Autodesk.Viewing.UI.Button.State.ACTIVE);
+      isyBaseButton.setToolTip('Normal Rendering');
+
       _viewer.impl.preloadPostProcessStyle();
       // Turn on a style. Styles are passed in as strings, for the "value" parameter:
       // "" - turn off the style; back to normal, no post-process is done.
@@ -48,26 +52,31 @@ ISYBaseButtonExtension.prototype.createUI = function () {
       // "cel" - cartoon ("posterized") style, with edges
       // "graphite" - black pencil style
       // "pencil" - colored pencil and paper
-      var value = "pencil";
+      let value = "pencil";
       _viewer.impl.setPostProcessParameter( "style", value );
       // make the image have no edges:
       _viewer.impl.setPostProcessParameter( "edges", true);
       // turn up brightness a bit:
       _viewer.impl.setPostProcessParameter( "brightness", 0.4);
 
+      //_viewer.impl.invalidate(true);
+
       _toggle = true;
     }
     else
     {
+      isyBaseButton.setState(Autodesk.Viewing.UI.Button.State.INACTIVE);
+      isyBaseButton.setToolTip('Pencil Sketch');
+
       _viewer.impl.preloadPostProcessStyle();
-      var value = "none";
+      let value = "none";
       _viewer.impl.setPostProcessParameter( "style", value );
       // make the image have no edges:
       _viewer.impl.setPostProcessParameter( "edges", false);
       // turn up brightness a bit:
       _viewer.impl.setPostProcessParameter( "brightness", 0);
 
-      iewer.impl.invalidate(true);
+      //_viewer.impl.invalidate(true);
 
       _toggle = false;
     }
@@ -75,7 +84,7 @@ ISYBaseButtonExtension.prototype.createUI = function () {
   // isyBaseButton CSS class should be defined on your .css file
   // you may include icons, below is a sample class:
   isyBaseButton.addClass('isyBaseButton');
-  isyBaseButton.setToolTip('Show pencil sketch');
+  isyBaseButton.setToolTip('Pencil sketch');
   isyBaseButton.icon.className = 'glyphicon glyphicon-pencil';
   isyBaseButton.icon.style.fontSize = '24px';
 
