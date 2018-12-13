@@ -425,6 +425,8 @@ $("#loading").remove();
     */
 
     //AddRow(table,[2218],"Terskel alernativ 2");
+    AddRow(table,null,"Fjern Snitt");
+    AddRow(table,null,"Snitt");
     AddRow(table,[24610],"Surfer");
     AddRow(table,[62838],"Surfebølge");
     
@@ -497,6 +499,16 @@ function AddRow(table,id, name)
   let createClickHandler =
       function (row) {
           return function () {
+            if(name == "Snitt")
+            {
+              moveCameraToState("./snitt.json");
+              return;
+            }
+            if(name == "Fjern Snitt")
+            {
+              _viewer.setCutPlanes();
+              return;
+            }
             _viewer.fitToView(id)
             _viewer.isolate(id)
             //_viewer.select(id);
@@ -513,6 +525,25 @@ function AddRow(table,id, name)
   row.onclick = createClickHandler(row);
 }
 
+function moveCameraToState(url)
+{
+    $.ajax({
+      url: url,
+      dataType: 'json',
+      success: function (data) {
+        _viewer.restoreState(data);   
+        //resolve('success')
+      },
+      error: function (xhr, ajaxOptions, thrownError) {
+        console.log(thrownError);
+      },
+      statusCode: {
+        404: function () {
+          alert('There was a problem with the server.  Try again soon!');
+        }
+      }
+    });
+}
 
 function onErrorCallback(data) {}
 
