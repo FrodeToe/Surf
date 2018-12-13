@@ -59,7 +59,7 @@ ISYBaseButtonExtension.prototype.createUI = function () {
       // turn up brightness a bit:
       _viewer.impl.setPostProcessParameter( "brightness", 0.4);
 
-      //_viewer.impl.invalidate(true);
+      _viewer.impl.invalidate(true);
 
       _toggle = true;
     }
@@ -76,7 +76,7 @@ ISYBaseButtonExtension.prototype.createUI = function () {
       // turn up brightness a bit:
       _viewer.impl.setPostProcessParameter( "brightness", 0);
 
-      //_viewer.impl.invalidate(true);
+      _viewer.impl.invalidate(true);
 
       _toggle = false;
     }
