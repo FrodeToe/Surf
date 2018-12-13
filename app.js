@@ -4,7 +4,8 @@ let _panel = null;
 $(document).ready (function () {
   var docs = [];
 
-  docs.push({'path':'./Surf.nwd/0/0.svf','name':'Test'});
+  //docs.push({'path':'./Surf.nwd/0/0.svf','name':'Test'});
+  docs.push({'path':'./Resource/3D View/BIM360-3D ALLE FAG 524835/BIM360-3D ALLE FAG.svf','name':'Test'});
   
   if(docs.length ==0)
       return;
@@ -26,17 +27,30 @@ $(document).ready (function () {
       var image = "";
       var type = 0;
       var elId = event.dbIdArray[0];
-      if(elId == 2224)//4808)
+      if(elId == 62842)//4808)
       {
-        title = "Terskel alternativ 2";
-        image = "Pris på betong:<br><br>Volume = 110,251 m³<br>Billigste alternativ: 54.275 kr<br>Dyreste alternativ: 111.231 kr<br>";
+        title = "Surfebølge";
+        image = "Pris på betong:<br><br>Volume = 110,251 m³<br>Billigste alternativ: 54.275 kr<br>Dyreste alternativ: 111.231 kr<br> ";
         type = 1;
+        if (_panel != null) 
+          _panel.setVisible(false);
+        _panel=null;
+        //<iframe width="933" height="700" src="https://app.powerbi.com/view?r=eyJrIjoiZTAxNDZiYjktZDdiNS00NzkwLThjMDctN2ViNTFmOTM2Y2Y5IiwidCI6ImNlMjVjYTkzLTAwNGYtNDRmNC1hNmI1LWViMjJiNDU4MTVhYSIsImMiOjh9" frameborder="0" allowFullScreen="true"></iframe>
+      }
+      else if(elId == 24614)//4808)
+      {
+        title = "Surfer";
+        image = "Pris på surfer:<br><br>The Stick: 50 kr<br>Q-tip: 100 kr<br>The Drifter: 125 kr<br>Kelly Slater: 1.500.000 kr<br> ";
+        type = 1;
+        if (_panel != null) 
+          _panel.setVisible(false);
+        _panel = null;
         //<iframe width="933" height="700" src="https://app.powerbi.com/view?r=eyJrIjoiZTAxNDZiYjktZDdiNS00NzkwLThjMDctN2ViNTFmOTM2Y2Y5IiwidCI6ImNlMjVjYTkzLTAwNGYtNDRmNC1hNmI1LWViMjJiNDU4MTVhYSIsImMiOjh9" frameborder="0" allowFullScreen="true"></iframe>
       }
       else
       {
         if (_panel != null) 
-        _panel.setVisible(false);
+          _panel.setVisible(false);
         return;
       }  
 

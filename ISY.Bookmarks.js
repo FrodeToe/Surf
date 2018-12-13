@@ -424,7 +424,9 @@ $("#loading").remove();
     AddRow(table,[4809],"Pongtong 26");
     */
 
-    AddRow(table,[2218],"Terskel alernativ 2");
+    //AddRow(table,[2218],"Terskel alernativ 2");
+    AddRow(table,[24610],"Surfer");
+    AddRow(table,[62838],"Surfebølge");
     
 }
 
