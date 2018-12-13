@@ -20,6 +20,9 @@ $(document).ready (function () {
       // geometry loded code
       _viewer.loadExtension('ISY.Viewing.Extension.Bookmarks');
       _viewer.loadExtension('ISY.BaseButton.Extension');
+
+      var measureExtension = _viewer.getExtension('Autodesk.Measure');
+      measureExtension.setUnits('mm');
     });
 
     _viewer.addEventListener (Autodesk.Viewing.SELECTION_CHANGED_EVENT, function(event){
@@ -66,7 +69,7 @@ $(document).ready (function () {
     });
 
     _viewer.setReverseZoomDirection(true);
-
+   
     _viewer.loadModel (options.docid);
   });
 });
