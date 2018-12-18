@@ -52,7 +52,8 @@ ISYBaseButtonExtension.prototype.createUI = function () {
       // "cel" - cartoon ("posterized") style, with edges
       // "graphite" - black pencil style
       // "pencil" - colored pencil and paper
-      let value = "pencil";
+      //let value = "pencil";
+      let value = "edging";
       _viewer.impl.setPostProcessParameter( "style", value );
       // make the image have no edges:
       _viewer.impl.setPostProcessParameter( "edges", true);
@@ -69,7 +70,7 @@ ISYBaseButtonExtension.prototype.createUI = function () {
       isyBaseButton.setToolTip('Pencil Sketch');
 
       _viewer.impl.preloadPostProcessStyle();
-      let value = "none";
+      let value = "";
       _viewer.impl.setPostProcessParameter( "style", value );
       // make the image have no edges:
       _viewer.impl.setPostProcessParameter( "edges", false);
