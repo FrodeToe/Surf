@@ -34,7 +34,8 @@ $(document).ready (function () {
         return;
       }
       title = props.name;
-      var content = "";
+      var content = "<table style='width:100%'>";
+      var numPropsAdded = 0;
       for(i=0;i<props.properties.length;i++)
       {
         var prop = props.properties[i];
@@ -42,11 +43,15 @@ $(document).ready (function () {
         {
           if(prop.displayName == "GUID")
             continue;
-          content += "<b>" + prop.displayName + ":</b> " + prop.displayValue + "<br>";
+          content += "<tr>";
+          content += "<th>" + prop.displayName + ":</th><th>" + prop.displayValue + "</th>";
+          content += "</tr>";
+          numPropsAdded++;
         }
       }
+      content += "</table>";
 
-      if(content == "")
+      if(numPropsAdded == 0)
         content = "Objektet her ingen relevante data";
       
       type = 1;
@@ -73,8 +78,11 @@ $(document).ready (function () {
     });
 
     _viewer.setReverseZoomDirection(true);
-   
+
     _viewer.loadModel (options.docid);
+
+    //var navTools = _viewer.toolbar.getControl('modelTools');
+    //navTools.removeControl('toolbar-explodeTool');
   });
 });
 
