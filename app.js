@@ -4,8 +4,8 @@ let _panel = null;
 $(document).ready (function () {
   var docs = [];
 
-  //docs.push({'path':'./Surf.nwd/0/0.svf','name':'Test'});
-  docs.push({'path':'./Resource/3D View/BIM360-3D ALLE FAG 524835/BIM360-3D ALLE FAG.svf','name':'Test'});
+  docs.push({'path':'./Surf.nwd/0/0.svf','name':'Surf'});
+  //docs.push({'path':'./Resource/3D View/BIM360-3D ALLE FAG 524835/BIM360-3D ALLE FAG.svf','name':'Test'});
   
   if(docs.length ==0)
       return;
@@ -25,12 +25,55 @@ $(document).ready (function () {
       measureExtension.setUnits('mm');
     });
 
+    function viewerGetProperties(props) {
+      if(props.dbId == undefined)
+      {
+        if (_panel != null) 
+          _panel.setVisible(false);
+        
+        return;
+      }
+      title = props.name;
+      var content = "";
+      for(i=0;i<props.properties.length;i++)
+      {
+        var prop = props.properties[i];
+        if(prop.displayCategory == "iConstruct")
+        {
+          if(prop.displayName == "GUID")
+            continue;
+          content += "<b>" + prop.displayName + ":</b> " + prop.displayValue + "<br>";
+        }
+      }
+
+      if(content == "")
+        content = "Objektet her ingen relevante data";
+      
+      type = 1;
+      if (_panel != null) 
+      {
+        updateBasePanel(_panel,title,content);
+      }  
+        //_panel.setVisible(false);
+      //_panel=null;
+
+      if (_panel == null) {
+        _panel = new ISYBasePanel(_viewer, _viewer.container, 
+            'No object selected', title, content, type, null);
+      }
+      // show/hide docking panel
+      
+      _panel.setVisible(true);
+    }
+
     _viewer.addEventListener (Autodesk.Viewing.SELECTION_CHANGED_EVENT, function(event){
       var title = "";
       var image = "";
       var type = 0;
       var elId = event.dbIdArray[0];
-      if(elId == 62842)//4808)
+      
+      _viewer.getProperties(elId,viewerGetProperties);
+      /*if(elId == 62842)//4808)
       {
         title = "Surfebølge";
         image = "Pris på betong:<br><br>Volume = 110,251 m³<br>Billigste alternativ: 54.275 kr<br>Dyreste alternativ: 111.231 kr<br> ";
@@ -55,16 +98,10 @@ $(document).ready (function () {
         if (_panel != null) 
           _panel.setVisible(false);
         return;
-      }  
+      } */ 
 
             // if null, create it
-      if (_panel == null) {
-        _panel = new ISYBasePanel(_viewer, _viewer.container, 
-            'isyExtensionPanel', title, image, type, null);
-      }
-      // show/hide docking panel
-      
-      _panel.setVisible(true);
+
 
     });
 

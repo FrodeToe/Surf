@@ -23,6 +23,7 @@ function ISYBasePanel(viewer, container, id, title, content, type, options) {
   if(type == 1)
   {
     div = document.createElement('div');
+    div.setAttribute("id", "isyPropDiv");
     div.width = 400;
     div.height = 300;
   }
@@ -43,7 +44,22 @@ function ISYBasePanel(viewer, container, id, title, content, type, options) {
   });
 }
 
-
+function updateBasePanel(panel,title,content)
+{
+  var divTop = _panel.container.style.top;
+  var divLeft = _panel.container.style.left;
+  _panel.setVisible(false);
+  _panel=null;
+  _panel = new ISYBasePanel(_viewer, _viewer.container, 
+    'No object selected', title, content, 1, null);
+  _panel.container.style.top = divTop;
+  _panel.container.style.left = divLeft;
+  /*panel.setTitle(title);
+  var div = document.getElementById('isyPropDiv');
+  div.innerHTML = content;
+  panel.container.appendChild(div);
+  panel.resizeToContent();*/
+}
 
 ISYBasePanel.prototype = Object.create(Autodesk.Viewing.UI.DockingPanel.prototype);
 ISYBasePanel.prototype.constructor = ISYBasePanel;

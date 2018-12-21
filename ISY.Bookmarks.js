@@ -262,7 +262,7 @@ ISYViewingExtensionBookmarks = function (viewer, options) {
     this.container.style.top = "20px";
 
     this.container.style.width = "300px";
-    this.container.style.height = "250px";
+    this.container.style.height = "280px";
 
     this.container.style.resize = "auto";
 
@@ -426,9 +426,14 @@ $("#loading").remove();
 
     //AddRow(table,[2218],"Terskel alernativ 2");
     AddRow(table,null,"Fjern Snitt");
-    AddRow(table,null,"Snitt");
-    AddRow(table,[24610],"Surfer");
-    AddRow(table,[62838],"Surfebølge");
+    AddRow(table,null,"Lengdesnitt mot vest");
+    AddRow(table,null,"Lengdesnitt mot øst");
+    AddRow(table,null,"Alternativ 2b");
+    AddRow(table,null,"Alternativ 2a");
+    AddRow(table,null,"Kostnadsdiagram (isolert)");
+    AddRow(table,null,"Kostnadsdiagram");
+    //AddRow(table,[24610],"Surfer");
+    //AddRow(table,[62838],"Surfebølge");
     
 }
 
@@ -499,11 +504,41 @@ function AddRow(table,id, name)
   let createClickHandler =
       function (row) {
           return function () {
-            if(name == "Snitt")
+            if(name == "Kostnadsdiagram")
+            {
+              moveCameraToState("./sv_kostnadsdiagram.json");
+              return;
+            }
+            if(name == "Kostnadsdiagram (isolert)")
+            {
+              moveCameraToState("./sv_kostisolert.json");
+              return;
+            }
+            if(name == "Alternativ 2a")
+            {
+              moveCameraToState("./sv_alternativ2a.json");
+              return;
+            }
+            if(name == "Alternativ 2b")
+            {
+              moveCameraToState("./sv_alternativ2b.json");
+              return;
+            }
+            if(name == "Lengdesnitt mot vest")
+            {
+              moveCameraToState("./sv_snittvest.json");
+              return;
+            }
+            if(name == "Lengdesnitt mot øst")
+            {
+              moveCameraToState("./sv_snittost.json");
+              return;
+            }
+            /*if(name == "Snitt")
             {
               moveCameraToState("./snitt.json");
               return;
-            }
+            }*/
             if(name == "Fjern Snitt")
             {
               _viewer.setCutPlanes();
