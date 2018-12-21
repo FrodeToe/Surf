@@ -9,7 +9,8 @@
       "hidden": [
         147,
         148,
-        152
+        152,
+        1553
       ],
       "explodeScale": 0,
       "idType": "lmv"
@@ -46,7 +47,7 @@
     "aspectRatio": 1.0598580405985805,
     "projection": "perspective",
     "isOrthographic": false,
-    "fieldOfView": 47.426897237938846
+    "fieldOfView": 47.42689790779544
   },
   "cutplanes": []
 }

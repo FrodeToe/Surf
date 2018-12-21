@@ -1,0 +1,46 @@
+{
+  "seedURN": "./Surf.nwd/0/0.svf",
+  "objectSet": [
+    {
+      "id": [],
+      "isolated": [],
+      "hidden": [],
+      "explodeScale": 0,
+      "idType": "lmv"
+    }
+  ],
+  "viewport": {
+    "name": "",
+    "eye": [
+      -34.5,
+      -350,
+      45.692413330078125
+    ],
+    "target": [
+      -63.84375,
+      -203.5,
+      -52.313751220703125
+    ],
+    "up": [
+      -0.1077210062602655,
+      0.5378019993057771,
+      0.8361609859070112
+    ],
+    "worldUpVector": [
+      0,
+      0,
+      1
+    ],
+    "pivotPoint": [
+      -63.84375,
+      -203.5,
+      -52.313751220703125
+    ],
+    "distanceToOrbit": 178.68551691174443,
+    "aspectRatio": 1.0598580405985805,
+    "projection": "perspective",
+    "isOrthographic": false,
+    "fieldOfView": 47.69026231501793
+  },
+  "cutplanes": []
+}

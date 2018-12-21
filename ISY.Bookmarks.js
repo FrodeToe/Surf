@@ -425,7 +425,7 @@ $("#loading").remove();
     */
 
     //AddRow(table,[2218],"Terskel alernativ 2");
-    AddRow(table,null,"Fjern Snitt");
+    AddRow(table,null,"Hjem (Fjern Snitt/vis alt)");
     AddRow(table,null,"Lengdesnitt mot vest");
     AddRow(table,null,"Lengdesnitt mot øst");
     AddRow(table,null,"Alternativ 2b");
@@ -539,9 +539,10 @@ function AddRow(table,id, name)
               moveCameraToState("./snitt.json");
               return;
             }*/
-            if(name == "Fjern Snitt")
+            if(name == "Hjem (Fjern Snitt/vis alt)")
             {
               _viewer.setCutPlanes();
+              moveCameraToState("./sv_hjem.json");
               return;
             }
             _viewer.fitToView(id)

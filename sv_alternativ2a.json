@@ -9,7 +9,8 @@
       "hidden": [
         147,
         148,
-        152
+        152,
+        1553
       ],
       "explodeScale": 0,
       "idType": "lmv"
@@ -29,8 +30,8 @@
     ],
     "up": [
       0.14967825590878767,
-      0.3535505094975267,
-      0.923362581515053
+      0.35355050949752675,
+      0.9233625815150529
     ],
     "worldUpVector": [
       0,
@@ -46,7 +47,7 @@
     "aspectRatio": 1.0598580405985805,
     "projection": "perspective",
     "isOrthographic": false,
-    "fieldOfView": 47.426897237938846
+    "fieldOfView": 47.42689790779544
   },
   "cutplanes": []
 }
