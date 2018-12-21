@@ -67,42 +67,9 @@ $(document).ready (function () {
     }
 
     _viewer.addEventListener (Autodesk.Viewing.SELECTION_CHANGED_EVENT, function(event){
-      var title = "";
-      var image = "";
-      var type = 0;
       var elId = event.dbIdArray[0];
       
       _viewer.getProperties(elId,viewerGetProperties);
-      /*if(elId == 62842)//4808)
-      {
-        title = "Surfebølge";
-        image = "Pris på betong:<br><br>Volume = 110,251 m³<br>Billigste alternativ: 54.275 kr<br>Dyreste alternativ: 111.231 kr<br> ";
-        type = 1;
-        if (_panel != null) 
-          _panel.setVisible(false);
-        _panel=null;
-        //<iframe width="933" height="700" src="https://app.powerbi.com/view?r=eyJrIjoiZTAxNDZiYjktZDdiNS00NzkwLThjMDctN2ViNTFmOTM2Y2Y5IiwidCI6ImNlMjVjYTkzLTAwNGYtNDRmNC1hNmI1LWViMjJiNDU4MTVhYSIsImMiOjh9" frameborder="0" allowFullScreen="true"></iframe>
-      }
-      else if(elId == 24614)//4808)
-      {
-        title = "Surfer";
-        image = "Pris på surfer:<br><br>The Stick: 50 kr<br>Q-tip: 100 kr<br>The Drifter: 125 kr<br>Kelly Slater: 1.500.000 kr<br> ";
-        type = 1;
-        if (_panel != null) 
-          _panel.setVisible(false);
-        _panel = null;
-        //<iframe width="933" height="700" src="https://app.powerbi.com/view?r=eyJrIjoiZTAxNDZiYjktZDdiNS00NzkwLThjMDctN2ViNTFmOTM2Y2Y5IiwidCI6ImNlMjVjYTkzLTAwNGYtNDRmNC1hNmI1LWViMjJiNDU4MTVhYSIsImMiOjh9" frameborder="0" allowFullScreen="true"></iframe>
-      }
-      else
-      {
-        if (_panel != null) 
-          _panel.setVisible(false);
-        return;
-      } */ 
-
-            // if null, create it
-
-
     });
 
     _viewer.setReverseZoomDirection(true);
