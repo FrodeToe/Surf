@@ -11,8 +11,8 @@ function ISYBasePanel(viewer, container, id, title, content, type, options) {
   // the style of the docking panel
   // use this built-in style to support Themes on Viewer 4+
   this.container.classList.add('docking-panel-container-solid-color-a');
-  this.container.style.top = "20px";
-  this.container.style.left = "330px";
+  this.container.style.top = "290px";
+  this.container.style.left = "20px";
   this.container.style.width = "auto";
   this.container.style.height = "auto";
   this.container.style.resize = "auto";

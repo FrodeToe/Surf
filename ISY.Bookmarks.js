@@ -262,7 +262,7 @@ ISYViewingExtensionBookmarks = function (viewer, options) {
     this.container.style.top = "20px";
 
     this.container.style.width = "300px";
-    this.container.style.height = "280px";
+    this.container.style.height = "220px";
 
     this.container.style.resize = "auto";
 
@@ -430,8 +430,8 @@ $("#loading").remove();
     AddRow(table,null,"Lengdesnitt mot øst");
     AddRow(table,null,"Alternativ 2b");
     AddRow(table,null,"Alternativ 2a");
-    AddRow(table,null,"Kostnadsdiagram (isolert)");
-    AddRow(table,null,"Kostnadsdiagram");
+    //AddRow(table,null,"Kostnadsdiagram (isolert)");
+    //AddRow(table,null,"Kostnadsdiagram");
     //AddRow(table,[24610],"Surfer");
     //AddRow(table,[62838],"Surfebølge");
     

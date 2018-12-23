@@ -41,7 +41,7 @@ $(document).ready (function () {
         var prop = props.properties[i];
         if(prop.displayCategory == "iConstruct")
         {
-          if(prop.displayName == "GUID")
+          if(prop.displayName == "GUID" || prop.displayName == "ISY Kostnad" || prop.displayName == "ISY Enhetskost")
             continue;
           content += "<tr>";
           content += "<th>" + prop.displayName + ":</th><th>" + prop.displayValue + "</th>";
@@ -79,10 +79,12 @@ $(document).ready (function () {
 
     _viewer.setReverseZoomDirection(true);
 
-    _viewer.loadModel (options.docid);
-
-    //var navTools = _viewer.toolbar.getControl('modelTools');
-    //navTools.removeControl('toolbar-explodeTool');
+    _viewer.loadModel(options.docid,{},function (doc) { // onSuccessCallback
+      var navTools = _viewer.toolbar.getControl('modelTools');
+      navTools.removeControl('toolbar-explodeTool');
+      var setTools = _viewer.toolbar.getControl('settingsTools');
+      setTools.removeControl('toolbar-propertiesTool');
+    });
   });
 });
 
